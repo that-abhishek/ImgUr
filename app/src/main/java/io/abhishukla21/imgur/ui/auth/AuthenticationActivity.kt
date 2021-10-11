@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import io.abhishukla21.imgur.ImgurApplication
+import io.abhishukla21.imgur.MainActivity
 import io.abhishukla21.imgur.databinding.ActivityAuthenticationBinding
 
 import io.abhishukla21.imgur.R
@@ -24,7 +25,8 @@ class AuthenticationActivity : AppCompatActivity() {
         private val TAG = AuthenticationActivity::class.java.canonicalName
     }
 
-    @Inject lateinit var loginViewModel: LoginViewModel
+    @Inject
+    lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityAuthenticationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +67,7 @@ class AuthenticationActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
-//            finish()
+            finish()
         })
 
         login.setOnClickListener {
@@ -87,6 +89,7 @@ class AuthenticationActivity : AppCompatActivity() {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
         // TODO : initiate successful logged in experience
+        startActivity(Intent(this, MainActivity::class.java))
         Toast.makeText(
             applicationContext,
             "$welcome $displayName",

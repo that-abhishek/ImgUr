@@ -14,6 +14,7 @@ import io.abhishukla21.imgur.network.TokenAuthenticator
 import io.abhishukla21.imgur.network.TokenInterceptor
 import io.abhishukla21.imgur.network.service.ImgurService
 import io.abhishukla21.imgur.repository.AuthRepository
+import io.abhishukla21.imgur.repository.GalleryRepository
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -42,12 +43,14 @@ class ApplicationModule(private val appContext: Context) {
     fun provideImgurService(
         @Named("base_url") baseUrl: String,
         tokenAuthenticator: TokenAuthenticator,
+        tokenInterceptor: TokenInterceptor,
         cache: Cache
     ): ImgurService {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(tokenInterceptor)
             .authenticator(tokenAuthenticator)
             .cache(cache)
             .build()
@@ -113,6 +116,10 @@ class ApplicationModule(private val appContext: Context) {
         val cacheSize = 10 * 1024 * 1024L // 10 MB
         return Cache(context.cacheDir, cacheSize)
     }
+
+    @Provides
+    @Singleton
+    fun provideGalleryRepository(imgurService: ImgurService) = GalleryRepository(imgurService)
 
 
 }

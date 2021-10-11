@@ -6,6 +6,7 @@ import dagger.Component
 import io.abhishukla21.imgur.di.module.ApplicationModule
 import io.abhishukla21.imgur.network.service.ImgurService
 import io.abhishukla21.imgur.repository.AuthRepository
+import io.abhishukla21.imgur.repository.GalleryRepository
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import javax.inject.Singleton
 
@@ -21,4 +22,6 @@ interface ApplicationComponent {
     fun getCompositeDisposable(): CompositeDisposable
 
     fun getUserRepository(): AuthRepository
+
+    fun getGalleryRepository(): GalleryRepository
 }

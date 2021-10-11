@@ -3,7 +3,8 @@ package io.abhishukla21.imgur.data
 object EndPoints {
     const val AUTHORIZE = "oauth2/authorize"
     const val GET_TOKEN = "oauth2/token"
-    const val CURRENT_ACCOUNT = "https://api.imgur.com/3/account/me"
+    const val CURRENT_ACCOUNT = "3/account/me"
+    const val SEARCH_GALLERY = "3/gallery/search/{sort}/{window}/{page}"
 }
 
 object BaseUrl {
@@ -34,4 +35,9 @@ object PrefKey {
 
 object Header {
     const val KEY_AUTHORIZATION = "Authorization"
+}
+
+object MediaType {
+    const val MEDIA_TYPE_VIDEO = "video/mp4"
+    const val MEDIA_TYPE_IMAGE = "image/jpeg"
 }
