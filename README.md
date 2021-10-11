@@ -35,17 +35,38 @@ Yes ImgUr is an Android application that uses [ImgUr](https://apidocs.imgur.com/
 #### Hight Level Components:
 
 - Entity
+
 - Model
+
 - Local Storage (Database, file system, cache and Shared Preferences)
+
 - Storage Optimizer (LRU eviction)
+
 - Network Service
+
 - Repository
+
 - View-Model
+
 - View
+
 - Background Sync Service (Manager and Worker)
+
 - Notification Service
+
 - Notification Handler
+
 - Storage Cleaner
+
 - Authorization Manager
+
 - Dependency Injectors (Components and Modules)
+
 - Image Optimizer
+
+  
+
+  #### Authentication Module
+
+  ![OAuth architecture](https://raw.githubusercontent.com/yes-abhishek/ImgUr/main/Yes%20ImgUr.jpg)
+
