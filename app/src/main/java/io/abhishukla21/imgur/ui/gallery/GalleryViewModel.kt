@@ -19,7 +19,7 @@ class GalleryViewModel(
         compositeDisposable.add(
             galleryRepository.searchGallery(query = query)
                 .subscribeOn(Schedulers.io())
-                .subscribe({ searchResultLiveData.postValue(it) }, {})
+                .subscribe({ searchResultLiveData.postValue(it) }, {it.printStackTrace()})
         )
     }
 

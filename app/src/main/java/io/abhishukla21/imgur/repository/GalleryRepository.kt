@@ -20,7 +20,6 @@ class GalleryRepository @Inject constructor(
         query: String
     ): Single<List<Album>> {
         return imgurService.searchGallery(sort, window, page, query)
-
             .map { it.data }
     }
 
