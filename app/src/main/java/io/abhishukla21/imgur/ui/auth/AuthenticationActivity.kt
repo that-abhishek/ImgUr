@@ -11,7 +11,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import io.abhishukla21.imgur.ImgurApplication
-import io.abhishukla21.imgur.MainActivity
+import io.abhishukla21.imgur.ui.MainActivity
 import io.abhishukla21.imgur.databinding.ActivityAuthenticationBinding
 
 import io.abhishukla21.imgur.R

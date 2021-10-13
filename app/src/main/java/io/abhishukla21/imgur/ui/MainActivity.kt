@@ -1,8 +1,12 @@
-package io.abhishukla21.imgur
+package io.abhishukla21.imgur.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import io.abhishukla21.imgur.ImgurApplication
+import io.abhishukla21.imgur.R
 import io.abhishukla21.imgur.di.component.DaggerActivityComponent
 import io.abhishukla21.imgur.di.module.ActivityModule
 import io.abhishukla21.imgur.ui.gallery.GalleryViewModel
@@ -11,8 +15,8 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var galleryViewModel: GalleryViewModel
+    lateinit var naveHostFragment: NavHostFragment
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         DaggerActivityComponent.builder()
@@ -22,14 +26,15 @@ class MainActivity : AppCompatActivity() {
             .inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        observeLiveData()
-        galleryViewModel.onCreate()
-        btn_search.setOnClickListener { galleryViewModel.searchGallery(edit_text_search_gallery.text.toString()) }
+        setupView()
     }
 
-    private fun observeLiveData() {
-        galleryViewModel.searchResultLiveData.observe(this, {
-            text_view_search_result.text = it.toString()
-        })
+    private fun setupView() {
+        naveHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = naveHostFragment.navController
+        bottom_navigation_main.setupWithNavController(navController)
     }
+
+
 }

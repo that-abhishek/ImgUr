@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
     id 'com.google.secrets_gradle_plugin' version '0.4'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -52,6 +53,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
     api 'com.google.dagger:dagger:2.39.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt 'com.google.dagger:dagger-compiler:2.39.1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.39.1'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -63,6 +65,11 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation("com.squareup.okhttp3:okhttp:4.9.1")
+
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
+
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

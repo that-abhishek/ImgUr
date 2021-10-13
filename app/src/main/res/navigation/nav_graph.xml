@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_gallery">
+
+    <fragment
+        android:id="@+id/navigation_gallery"
+        android:name="io.abhishukla21.imgur.ui.gallery.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="io.abhishukla21.imgur.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="io.abhishukla21.imgur.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/navigation_upload"
+        android:name="io.abhishukla21.imgur.ui.upload.UploadFragment"
+        android:label="fragment_upload"
+        tools:layout="@layout/fragment_upload" />
+
+</navigation>
